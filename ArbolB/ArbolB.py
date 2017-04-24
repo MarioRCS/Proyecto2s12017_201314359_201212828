@@ -15,6 +15,9 @@ class NodoArbolB():
 
 
 
+
+
+
 class ArbolB():
     def __init__(self):
         self.raiz=None
@@ -23,8 +26,6 @@ class ArbolB():
         while numero[index]!=None:
             index+=1
         return index
-
-
 
 
 
@@ -118,7 +119,6 @@ class ArbolB():
     def InsertarB(self,padre,pagina,dato):
         if pagina==self.raiz:
             if pagina==None:
-                #print("hola1")
                 self.raiz=NodoArbolB()
                 self.raiz.claves.append(dato)
             else:
@@ -194,15 +194,6 @@ class ArbolB():
 
 
 
-Ar=ArbolB()
-
-Ar.InsertarB(None,Ar.raiz,"mario")
-Ar.InsertarB(None,Ar.raiz,"juan")
-Ar.InsertarB(None,Ar.raiz,"roberto")
-Ar.InsertarB(None,Ar.raiz,"javier")
-Ar.InsertarB(None,Ar.raiz,"pedro")
-#Ar.InsertarB(None,Ar.raiz,35)
-print(Ar.raiz.claves)
 
 
 
