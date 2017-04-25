@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+
 class NodoArbolB():
     def __init__(self):
         self.claves=[]
@@ -14,19 +15,46 @@ class NodoArbolB():
         self.padre=None
 
 
+class NodoLista():
 
+    def __init__(self):
+        self.siguiente=None
+        self.anterior=None
+        self.nombre=""
+        self.contrasenia=""
+        self.carpeta=None
 
 
 
 class ArbolB():
     def __init__(self):
         self.raiz=None
+        self.primero=None
+        self.ultimo=None
+
     def size(self,claves):
         index=0
         while numero[index]!=None:
             index+=1
         return index
 
+    def InsertarUsuario(self,nombre,contrasenia):
+        if self.primero==None:
+            nuevo=NodoLista()
+            nuevo.nombre=nombre
+            nuevo.contrasenia=contrasenia
+            self.primero=nuevo
+            self.ultimo=nuevo
+        else:
+            auxiliar=self.primero
+            while auxiliar.siguiente!=None:
+                auxiliar=auxiliar.siguiente
+            nuevo=NodoLista()
+            nuevo.nombre=nombre
+            nuevo.contrasenia=contrasenia
+            nuevo.anterior=self.ultimo
+            auxiliar.siguiente=nuevo
+            self.ultimo=nuevo
 
 
     def estalleno(self,pagina):
@@ -189,6 +217,14 @@ class ArbolB():
 
 
 
+    def CarpetaenUsuario(self,nombre,dato):
+        auxiliar=self.primero
+        while auxiliar!=None:
+            if auxiliar.nombre==nombre:
+                auxiliar.carpeta=self.raiz
+                self.InsertarB(None,auxiliar.carpeta,dato)
+                auxiliar.carpeta=self.raiz
+            auxiliar=auxiliar.siguiente
 
 
 
@@ -196,4 +232,22 @@ class ArbolB():
 
 
 
+
+Ar=ArbolB()
+Ar.InsertarUsuario("mario",123)
+Ar.InsertarUsuario("luna",456)
+Ar.InsertarUsuario("Roberto",44)
+Ar.CarpetaenUsuario("mario",4)
+Ar.CarpetaenUsuario("mario",5)
+Ar.CarpetaenUsuario("mario",6)
+Ar.CarpetaenUsuario("mario",10)
+Ar.CarpetaenUsuario("mario",12)
+Ar.raiz=None
+Ar.CarpetaenUsuario("luna",24)
+Ar.CarpetaenUsuario("luna",21)
+Ar.CarpetaenUsuario("luna",1)
+Ar.raiz=None
+Ar.CarpetaenUsuario("Roberto",100)
+
+print(Ar.primero.carpeta.ramas[0].claves)
 

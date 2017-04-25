@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-import ArbolB
+from ArbolB import ArbolB,NodoArbolB
 
 class NodoLista():
 
@@ -17,6 +17,7 @@ class Lista():
     def __init__(self):
         self.primero=None
         self.ultimo=None
+        self.raiz=None
 
 
     def Insertar(self,nombre,contrasenia):
@@ -43,18 +44,8 @@ class Lista():
         auxiliar=self.primero
         while auxiliar!=None:
             if auxiliar.nombre==nombre:
-                Ar=ArbolB.ArbolB()
-                auxiliar.carpeta=ArbolB.NodoArbolB()
-                auxiliar.carpeta.claves.append(dato)
-                Ar.raiz=auxiliar.carpeta
-                #Ar.InsertarB(None,Ar.raiz,dato)
+                Ar=ArbolB()
+                Ar.InsertarB(None,Ar.raiz,dato)
             auxiliar=auxiliar.siguiente
 
-lis=Lista()
-lis.Insertar("mario",123)
-lis.Insertar("roberto",456)
-lis.Insertar("cojolon",2404)
-lis.buscar("mario",24)
-lis.buscar("mario",25)
-Ar=ArbolB.ArbolB()
-print(Ar.raiz)
+
