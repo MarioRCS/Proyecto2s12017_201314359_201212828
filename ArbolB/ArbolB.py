@@ -10,6 +10,7 @@ class NodoArbolB():
         self.ramas.append(None)
         self.ramas.append(None)
         self.padre=None
+
 class Carpeta():
 
     def __init__(self):
@@ -174,6 +175,7 @@ class ArbolB():
 
     def InsertarB(self,padre,pagina,dato):
         if pagina==self.raiz:
+            #print("pasa")
             if pagina==None:
                 self.raiz=NodoArbolB()
                 carpeta=Carpeta()
@@ -253,6 +255,7 @@ class ArbolB():
                                 #self.raiz.claves.sort()
                                 self.Ordenar(self.raiz.claves)
         else:
+            #print("pasa2")
             pagina.padre=padre
             if dato < pagina.claves[0].nombre:
                 if pagina.ramas[0]!=None:
@@ -281,14 +284,28 @@ class ArbolB():
 
 
 
+
+
+
     def CarpetaenUsuario(self,nombre,dato):
         auxiliar=self.primero
         while auxiliar!=None:
             if auxiliar.nombre==nombre:
-                auxiliar.carpeta=self.raiz
-                self.InsertarB(None,auxiliar.carpeta,dato)
-                auxiliar.carpeta=self.raiz
+                if auxiliar.carpeta==None:
+                    auxiliar.carpeta=NodoArbolB()
+                    carpeta=Carpeta()
+                    carpeta.nombre=dato
+                    auxiliar.carpeta.claves.append(carpeta)
+                else:
+                    self.raiz=auxiliar.carpeta
+                    self.InsertarB(None,self.raiz,dato)
+                    auxiliar.carpeta=self.raiz
             auxiliar=auxiliar.siguiente
+
+
+
+
+
 
 
 
@@ -316,10 +333,26 @@ class ArbolB():
             else:
                 pass
 
-    def CrearenRuta(self,ruta,dato):
-        self.buscar(self.primero.carpeta,ruta).claves[self.IndicedelNodo(self.buscar(self.primero.carpeta,ruta).claves,ruta)].arbolb=self.raiz
-        self.InsertarB(None,self.buscar(self.primero.carpeta,ruta).claves[self.IndicedelNodo(self.buscar(self.primero.carpeta,ruta).claves,ruta)].arbolb,dato)
 
+
+
+
+
+
+    def CrearenRuta(self,ruta,dato):
+        if self.buscar(self.primero.carpeta,ruta).claves[self.IndicedelNodo(self.buscar(self.primero.carpeta,ruta).claves,ruta)].arbolb==None:
+            self.buscar(self.primero.carpeta,ruta).claves[self.IndicedelNodo(self.buscar(self.primero.carpeta,ruta).claves,ruta)].arbolb=NodoArbolB()
+            carpeta=Carpeta()
+            carpeta.nombre=dato
+            self.buscar(self.primero.carpeta,ruta).claves[self.IndicedelNodo(self.buscar(self.primero.carpeta,ruta).claves,ruta)].arbolb.claves.append(carpeta)
+            #self.raiz=self.buscar(self.primero.carpeta,ruta).claves[self.IndicedelNodo(self.buscar(self.primero.carpeta,ruta).claves,ruta)].arbolb
+            #self.InsertarB(None,self.raiz,dato)
+            #print("hola1")
+        else:
+            self.raiz=self.buscar(self.primero.carpeta,ruta).claves[self.IndicedelNodo(self.buscar(self.primero.carpeta,ruta).claves,ruta)].arbolb
+            self.InsertarB(None,self.raiz,dato)
+            self.buscar(self.primero.carpeta,ruta).claves[self.IndicedelNodo(self.buscar(self.primero.carpeta,ruta).claves,ruta)].arbolb=self.raiz
+            #print("hola2")
 
 
     def IndicedelNodo(self,vector,dato):
@@ -330,22 +363,27 @@ class ArbolB():
         return indice
 
 Ar=ArbolB()
+
+
+
 Ar.InsertarUsuario("mario",123)
-Ar.InsertarUsuario("luna",456)
-Ar.InsertarUsuario("Roberto",44)
-Ar.CarpetaenUsuario("mario",4)
-Ar.CarpetaenUsuario("mario",5)
-Ar.CarpetaenUsuario("mario",6)
-Ar.CarpetaenUsuario("mario",10)
+Ar.InsertarUsuario("roberto",456)
+Ar.InsertarUsuario("toro",789)
+
+
+Ar.CarpetaenUsuario("roberto",15)
+Ar.CarpetaenUsuario("roberto",16)
 Ar.CarpetaenUsuario("mario",12)
-Ar.raiz=None
-Ar.CarpetaenUsuario("luna",24)
-Ar.CarpetaenUsuario("luna",21)
-Ar.CarpetaenUsuario("luna",1)
-Ar.raiz=None
-Ar.CarpetaenUsuario("Roberto",100)
+Ar.CarpetaenUsuario("roberto",17)
+Ar.CarpetaenUsuario("roberto",18)
+Ar.CarpetaenUsuario("roberto",6)
+Ar.CarpetaenUsuario("mario",25)
 
-Ar.CrearenRuta(4,10)
+Ar.CrearenRuta(25,10)
+Ar.CrearenRuta(25,8)
+Ar.CrearenRuta(25,14)
+Ar.CrearenRuta(12,2)
+Ar.CrearenRuta(25,45)
+Ar.CrearenRuta(25,11)
 
-print(Ar.primero.carpeta.ramas[0].claves[0].arbolb.claves[0].nombre)
-
+print(Ar.primero.carpeta.claves[0].arbolb.claves[0].nombre)
