@@ -355,7 +355,7 @@ class ArbolB():
 
 
 
-    def EnRuta(self,ruta,dato):
+    def CarpetaEnRuta(self,ruta,dato):
         vector=ruta.split("/")
         auxiliar=self.primero
         while auxiliar!=None:
@@ -432,5 +432,7 @@ Ar.CrearenRuta(25,11)
 #print(Ar.primero.carpeta.claves[0].arbolb.claves[0].nombre)
 #print(Ar.buscar(Ar.primero.carpeta,25))
 #print(Ar.primero.carpeta)
-Ar.EnRuta("mario/root/25/10",78)
+Ar.CarpetaEnRuta("mario/root/25/10",78)
+Ar.CarpetaEnRuta("roberto/root/17",15)
 print(Ar.primero.carpeta.claves[1].arbolb.ramas[0].claves[1].arbolb.claves[0].nombre)
+print(Ar.primero.siguiente.carpeta.ramas[1].claves[0].arbolb.claves[0].nombre)
