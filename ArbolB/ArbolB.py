@@ -35,6 +35,8 @@ class ArbolB():
         self.raiz=None
         self.primero=None
         self.ultimo=None
+        self.temp=None
+        self.temp2=None
 
     def size(self,claves):
         index=0
@@ -345,14 +347,55 @@ class ArbolB():
             carpeta=Carpeta()
             carpeta.nombre=dato
             self.buscar(self.primero.carpeta,ruta).claves[self.IndicedelNodo(self.buscar(self.primero.carpeta,ruta).claves,ruta)].arbolb.claves.append(carpeta)
-            #self.raiz=self.buscar(self.primero.carpeta,ruta).claves[self.IndicedelNodo(self.buscar(self.primero.carpeta,ruta).claves,ruta)].arbolb
-            #self.InsertarB(None,self.raiz,dato)
-            #print("hola1")
         else:
             self.raiz=self.buscar(self.primero.carpeta,ruta).claves[self.IndicedelNodo(self.buscar(self.primero.carpeta,ruta).claves,ruta)].arbolb
             self.InsertarB(None,self.raiz,dato)
             self.buscar(self.primero.carpeta,ruta).claves[self.IndicedelNodo(self.buscar(self.primero.carpeta,ruta).claves,ruta)].arbolb=self.raiz
-            #print("hola2")
+
+
+
+
+    def EnRuta(self,ruta,dato):
+        vector=ruta.split("/")
+        auxiliar=self.primero
+        while auxiliar!=None:
+            if vector[0]==auxiliar.nombre:
+                #print("hola")
+                index=len(vector)
+                if index==2:
+                    if auxiliar.carpeta==None:
+                        auxiliar.carpeta=NodoArbolB()
+                        carpeta=Carpeta()
+                        carpeta.nombre=dato
+                        auxiliar.carpeta.claves.append(carpeta)
+                    else:
+                        self.raiz=auxiliar.carpeta
+                        self.InsertarB(None,self.raiz,dato)
+                        auxiliar.carpeta=self.raiz
+                else:
+                    indicador=2
+                    while indicador < index:
+                        if indicador==2:
+                            self.temp=self.buscar(auxiliar.carpeta,int(vector[indicador])).claves[self.IndicedelNodo(self.buscar(auxiliar.carpeta,int(vector[indicador])).claves,int(vector[indicador]))]
+                            indicador+=1
+                        else:
+                            self.temp2=self.temp
+                            print(self.temp2.nombre)
+                            self.temp=self.buscar(self.temp2.arbolb,int(vector[indicador])).claves[self.IndicedelNodo(self.buscar(self.temp2.arbolb,int(vector[indicador])).claves,int(vector[indicador]))]
+                            print(self.temp.nombre)
+                            indicador+=1
+                    if self.temp.arbolb==None:
+                        self.temp.arbolb=NodoArbolB()
+                        carpeta=Carpeta()
+                        carpeta.nombre=dato
+                        self.temp.arbolb.claves.append(carpeta)
+                    else:
+                        self.raiz=self.temp.arbolb
+                        self.InsertarB(None,self.raiz,dato)
+                        self.temp.arbolb=self.raiz
+            auxiliar=auxiliar.siguiente
+
+
 
 
     def IndicedelNodo(self,vector,dato):
@@ -386,4 +429,8 @@ Ar.CrearenRuta(12,2)
 Ar.CrearenRuta(25,45)
 Ar.CrearenRuta(25,11)
 
-print(Ar.primero.carpeta.claves[0].arbolb.claves[0].nombre)
+#print(Ar.primero.carpeta.claves[0].arbolb.claves[0].nombre)
+#print(Ar.buscar(Ar.primero.carpeta,25))
+#print(Ar.primero.carpeta)
+Ar.EnRuta("mario/root/25/10",78)
+print(Ar.primero.carpeta.claves[1].arbolb.ramas[0].claves[1].arbolb.claves[0].nombre)
