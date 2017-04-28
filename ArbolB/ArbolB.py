@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 
+from AVL import Arbol
+
 class NodoArbolB():
     def __init__(self):
         self.claves=[]
@@ -27,6 +29,7 @@ class NodoLista():
         self.nombre=""
         self.contrasenia=""
         self.carpeta=None
+        self.archivo=None
 
 
 
@@ -394,6 +397,119 @@ class ArbolB():
                         self.InsertarB(None,self.raiz,dato)
                         self.temp.arbolb=self.raiz
             auxiliar=auxiliar.siguiente
+
+
+
+    def ArchivoEnRuta(self,ruta,dato):
+        vector=ruta.split("/")
+        auxiliar=self.primero
+        while auxiliar!=None:
+            if vector[0]==auxiliar.nombre:
+                #print("hola")
+                index=len(vector)
+                if index==2:
+                    if auxiliar.archivo==None:
+                        auxiliar.archivo=NodoArbol(dato)
+                    else:
+                        ar=Arbol()
+                        ar.IsertarAVL(auxiliar.archivo,dato)
+                        ar.PosOrden(auxiliar.archivo)
+                        if auxiliar.archivo.factor==2:
+                            if auxiliar.archivo.izquierdo.factor==1:
+                                n=auxiliar
+                                n1=auxiliar.archivo
+                                n2=auxiliar.archivo.izquierdo
+                                n1.izquierdo=n2.derecho
+                                n2.derecho=n1
+                                n.archivo=n2
+                            elif auxiliar.archivo.izquierdo.factor==-1:
+                                p=auxiliar
+                                n=auxiliar.archivo
+                                n1=auxiliar.archivo.izquierdo
+                                n2=auxiliar.archivo.izquierdo.derecho
+                                n1.derecho=n2.izquierdo
+                                n2.izquierdo=n1
+                                n.izquierdo=n2.derecho
+                                n2.derecho=n
+                                p.archivo=n2
+                        elif auxiliar.archivo.factor==-2:
+                            if auxiliar.archivo.derecho.factor==-1:
+                                p=auxiliar
+                                n=auxiliar.archivo
+                                n1=auxiliar.archivo.derecho
+                                n.derecho=n1.izquierdo
+                                n1.izquierdo=n
+                                p.archivo=n1
+                            elif auxiliar.archivo.derecho.factor==1:
+                                p=auxiliar
+                                n=auxiliar.archivo
+                                n1=auxiliar.archivo.derecho
+                                n2=auxiliar.archivo.derecho.izquierdo
+                                n1.izquierdo=n2.derecho
+                                n2.derecho=n1
+                                n.derecho=n2.izquierdo
+                                n2.izquierdo=n
+                                p.archivo=n2
+                else:
+                    indicador=2
+                    while indicador < index:
+                        if indicador==2:
+                            self.temp=self.buscar(auxiliar.carpeta,int(vector[indicador])).claves[self.IndicedelNodo(self.buscar(auxiliar.carpeta,int(vector[indicador])).claves,int(vector[indicador]))]
+                            indicador+=1
+                        else:
+                            self.temp2=self.temp
+                            print(self.temp2.nombre)
+                            self.temp=self.buscar(self.temp2.arbolb,int(vector[indicador])).claves[self.IndicedelNodo(self.buscar(self.temp2.arbolb,int(vector[indicador])).claves,int(vector[indicador]))]
+                            print(self.temp.nombre)
+                            indicador+=1
+                    if self.temp.avl==None:
+                        self.temp.avl=NodoArbol(dato)
+                    else:
+                        ar=Arbol()
+                        ar.IsertarAVL(self.temp.avl,dato)
+                        ar.PosOrden(self.temp.avl)
+                        if self.temp.avl.factor==2:
+                            if self.temp.avl.izquierdo.factor==1:
+                                n=self.temp
+                                n1=self.temp.avl
+                                n2=self.temp.avl.izquierdo
+                                n1.izquierdo=n2.derecho
+                                n2.derecho=n1
+                                n.avl=n2
+                            elif self.temp.avl.izquierdo.factor==-1:
+                                p=self.temp
+                                n=self.temp.avl
+                                n1=self.temp.avl.izquierdo
+                                n2=self.temp.avl.izquierdo.derecho
+                                n1.derecho=n2.izquierdo
+                                n2.izquierdo=n1
+                                n.izquierdo=n2.derecho
+                                n2.derecho=n
+                                p.avl=n2
+                        elif self.temp.avl.factor==-2:
+                            if self.temp.avl.derecho.factor==-1:
+                                p=self.temp
+                                n=self.temp.avl
+                                n1=self.temp.avl.derecho
+                                n.derecho=n1.izquierdo
+                                n1.izquierdo=n
+                                p.avl=n1
+                            elif self.temp.avl.derecho.factor==1:
+                                p=self.temp
+                                n=self.temp.avl
+                                n1=self.temp.avl.derecho
+                                n2=self.temp.avl.derecho.izquierdo
+                                n1.izquierdo=n2.derecho
+                                n2.derecho=n1
+                                n.derecho=n2.izquierdo
+                                n2.izquierdo=n
+                                p.avl=n2
+
+            auxiliar=auxiliar.siguiente
+
+
+
+
 
 
 
