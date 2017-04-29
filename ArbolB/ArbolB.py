@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from AVL import Arbol
+from AVL import Arbol,NodoArbol
 
 class NodoArbolB():
     def __init__(self):
@@ -466,7 +466,7 @@ class ArbolB():
                         self.temp.avl=NodoArbol(dato)
                     else:
                         ar=Arbol()
-                        ar.IsertarAVL(self.temp.avl,dato)
+                        ar.InsertarAVL(self.temp.avl,dato)
                         ar.PosOrden(self.temp.avl)
                         if self.temp.avl.factor==2:
                             if self.temp.avl.izquierdo.factor==1:
@@ -550,5 +550,9 @@ Ar.CrearenRuta(25,11)
 #print(Ar.primero.carpeta)
 Ar.CarpetaEnRuta("mario/root/25/10",78)
 Ar.CarpetaEnRuta("roberto/root/17",15)
+Ar.ArchivoEnRuta("mario/root/12",24)
+Ar.ArchivoEnRuta("mario/root/12",8)
+Ar.ArchivoEnRuta("mario/root/12",30)
 print(Ar.primero.carpeta.claves[1].arbolb.ramas[0].claves[1].arbolb.claves[0].nombre)
 print(Ar.primero.siguiente.carpeta.ramas[1].claves[0].arbolb.claves[0].nombre)
+print(Ar.primero.carpeta.claves[0].avl.derecho.dato)
