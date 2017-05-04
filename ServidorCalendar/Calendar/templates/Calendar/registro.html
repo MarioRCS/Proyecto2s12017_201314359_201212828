@@ -1,0 +1,50 @@
+{% extends 'Calendar/Base.html' %}
+
+{% block content %}
+<div class="container-fluid mt-5">
+	<div class="container">
+		<div class="row" style="text-align: center">
+			<div class="col hidden-sm-down"></div>
+			<div class="col-3" style="width: 300px">
+				<form action="/registrar/" method="post"> {% csrf_token %}
+					<div style="text-align: center">
+						<h3>Registro de Usuarios</h3>
+					</div>
+					<br />
+					<div class="input-group">
+						<span class="input-group-addon" id="basic-addon1"></span>
+						<input type="text" name="usuario" placeholder="Usuario" class="form-control">
+					</div>
+					<br />
+					<div class="input-group ">
+						<span class="input-group-addon" id="basic-addon1"></span>
+						<input type="password" name="password" class="form-control" placeholder="Contraseña">
+					</div>
+					<br />
+					<div class="input-group container">
+						<button type="submit" class="btn btn-secondary" style="width: 300px;">Sign Up</button>
+					</div>
+					<div class="input-group container">
+						<a class="btn btn-secondary" href="/login/" role="button" style="width: 300px;">Login</a>
+					</div>
+					<br />
+					{% if mensaje != None %}
+					<div class="alert alert-success" role="alert">
+						<strong>{{ mensaje }}</strong> 
+					</div>
+					{% endif %}
+					{% if error != None %}
+					<div class="alert alert-danger" role="alert">
+						<strong>{{ error }}</strong> 
+					</div>
+					{% endif %}
+				</form>
+			</div>
+
+			<div class="col hidden-sm-down"></div>
+		</div>
+		<div>
+		</div>
+	</div>
+</div>
+{% endblock %}

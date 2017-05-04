@@ -1,0 +1,5 @@
+digraph G {
+graph [rankdir = TB];
+node [shape = record,height=.1];  {
+"0" [label = "Nombre: ana\nContraseña: anaju"];
+} labelloc="t"; label=" LISTA DOBLE USUARIOS";}
