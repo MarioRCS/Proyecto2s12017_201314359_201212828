@@ -53,7 +53,42 @@ def calendario(request):
 	if sesion == "":
 		return redirect('/login/')
 
-	return render(request, 'Calendar/calendario.html')
+	usuario = ldU.buscar(sesion)
+	matriz = usuario.matrizD
+	nodoInterno = matriz.buscar("2017", "mayo")
+	evento = []
+	dias = []
+	if nodoInterno != None:
+		listaDoble = nodoInterno.ldDias
+		temp = listaDoble.inicio
+		while temp != None:
+			dias.append(temp.dia)
+			temp = temp.siguiente
+
+	return render(request, 'Calendar/calendario.html', {'dias': dias})
+
+def evento(request):
+	return render(request, 'Calendar/evento.html')
+
+def creacion(request):
+	global sesion
+
+	if request.method == 'POST':
+		mensaje = "Evento creado con Exito!"
+		name = request.POST.get('nombre')
+		adress = request.POST.get('direccion')
+		desc = request.POST.get('descripcion')
+		time = request.POST.get('hora')
+		day = request.POST.get('dia')
+		month = request.POST.get('mes')
+		year = request.POST.get('anio')
+
+		print(sesion)
+		ldU.insertarMatrizLDU(str(sesion), str(day), str(month), str(year), str(name), str(desc), str(adress), str(time))
+				
+		ldU.graficarMatrizLDU(sesion)
+
+	return render(request, 'Calendar/evento.html', {'mensaje': mensaje})
 
 def logout(request):
 	global sesion

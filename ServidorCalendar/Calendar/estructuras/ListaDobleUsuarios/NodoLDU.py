@@ -5,8 +5,8 @@ class NodoLDU(object):
 		self.password = password
 		self.anterior = None
 		self.siguiente = None
-		#from .Matriz.Matriz import Matriz
-		#self.matrizD = Matriz()
+		from ..Matriz.Matriz import Matriz
+		self.matrizD = Matriz()
 
 	def getIndice(self):
 		return self.indice

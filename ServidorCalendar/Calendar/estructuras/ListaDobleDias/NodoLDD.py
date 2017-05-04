@@ -4,7 +4,7 @@ class NodoLDD(object):
 		self.dia = dia
 		self.anterior = None
 		self.siguiente = None
-		from TablaHash.Hash import TablaHash
+		from ..TablaHash.Hash import TablaHash
 		self.hash = TablaHash()
 
 	def getIndice(self):

@@ -8,7 +8,7 @@ class NodoListaNodos(object):
 		self.padreX = None
 		self.padreY = None
 		self.listaDias = listaDias
-		from ListaDobleDias.LDDias import ListaDobleDias
+		from ..ListaDobleDias.LDDias import ListaDobleDias
 		self.ldDias = ListaDobleDias()
 
 

@@ -1,0 +1,21 @@
+digraph G {
+rankdir = TB;
+rank = min;
+node[style=filled,shape=box, label="Inicio", rankdir=UD];
+"0,0"[label="raiz", style=filled];
+"1,0"[label="2017", style=filled];
+"0,1"[label="mayo", style=filled];
+"1,1"[label="Dia: 10", style=filled];
+"0,0" -> "1,0"[constraint=false];
+"1,0" -> "0,0"[constraint=false];
+{rank=same;"0,0" "1,0"}
+{rank=same;"1,0" "0,0"}
+"0,1" -> "1,1"[constraint=false];
+"1,1" -> "0,1"[constraint=false];
+{rank=same;"0,1" "1,1"}
+{rank=same;"1,1" "0,1"}
+"0,0" -> "0,1"[rankdir=UD];
+"0,1" -> "0,0"[rankdir=UD];
+"1,0" -> "1,1"[rankdir=UD];
+"1,1" -> "1,0"[rankdir=UD];
+labelloc="t"; label=" MATRIZ DISPERSA CALENDARIO";}

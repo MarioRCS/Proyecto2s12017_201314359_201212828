@@ -1,0 +1,67 @@
+{% extends 'Calendar/Base.html' %}
+
+{% block content %}
+<div class="container-fluid mt-5">
+	<div class="container">
+		<div class="row" style="text-align: center">
+			<div class="col hidden-sm-down"></div>
+			<div class="col-3" style="width: 300px">
+				<form action="/creacion/" method="post"> {% csrf_token %}
+					<div style="text-align: center">
+						<h3>Crear Evento</h3>
+					</div>
+					<br />
+					<div class="input-group">
+						<span class="input-group-addon" id="basic-addon1"></span>
+						<input type="text" name="nombre" placeholder="Nombre Evento" class="form-control">
+					</div>
+					<br />
+					<div class="input-group ">
+						<span class="input-group-addon" id="basic-addon1"></span>
+						<input type="text" name="direccion" placeholder="Direccion" class="form-control">
+					</div>
+					<br />
+					<div class="input-group ">
+						<span class="input-group-addon" id="basic-addon1"></span>
+						<input type="text" name="descripcion" placeholder="Descripcion" class="form-control">
+					</div>
+					<br />
+					<div class="input-group ">
+						<span class="input-group-addon" id="basic-addon1"></span>
+						<input type="time" name="hora" placeholder="Hora" class="form-control">
+					</div>
+					<br />
+					<div class="input-group ">
+						<span class="input-group-addon" id="basic-addon1"></span>
+						<input type="number" name="dia" placeholder="Dia" class="form-control">
+					</div>
+					<br />
+					<div class="input-group ">
+						<span class="input-group-addon" id="basic-addon1"></span>
+						<input type="text" name="mes" placeholder="Mes" class="form-control">
+					</div>
+					<br />
+					<div class="input-group ">
+						<span class="input-group-addon" id="basic-addon1"></span>
+						<input type="text" name="anio" placeholder="Año" class="form-control">
+					</div>
+					<br />
+					<div class="input-group container">
+						<button type="submit" class="btn btn-secondary" style="width: 300px;">Crear</button>
+					</div>
+					<br />
+					{% if mensaje != None %}
+					<div class="alert alert-success" role="alert">
+						<strong>{{ mensaje }}</strong> 
+					</div>
+					{% endif %}
+				</form>
+			</div>
+
+			<div class="col hidden-sm-down"></div>
+		</div>
+		<div>
+		</div>
+	</div>
+</div>
+{% endblock %}

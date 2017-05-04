@@ -24,6 +24,8 @@ urlpatterns = [
 	url(r'^login/', views.login),
 	url(r'^validacion/', views.validacion),
 	url(r'^calendario/', views.calendario),
+    url(r'^evento/', views.evento),
+    url(r'^creacion/', views.creacion),
 	url(r'^logout/', views.logout),
     url(r'^admin/', admin.site.urls),
 ]

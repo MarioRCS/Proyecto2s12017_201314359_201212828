@@ -135,7 +135,7 @@ class ListaDobleUsuarios(object):
 	#******************** INSERCIÓN ********************#
 	def insertarMatrizLDU(self, nombre, dia, mes, anio, evento, desc, direc, hora) :
 		usuario = self.buscar(nombre)
-		print(usuario.getIndice())
+		#print(usuario.getIndice())
 		if nombre == usuario.getNombre():
 			usuario.insertarMatriz(dia, mes, anio, evento, desc, direc, hora)
 			print("Nodo insertado en Lista: " + str(dia) + "--" + mes + "--" + anio)
