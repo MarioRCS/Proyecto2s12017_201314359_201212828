@@ -1,0 +1,6 @@
+digraph g {
+nodo_ArchivoUsuarios[label="ArchivoUsuarios.txt"]
+nodo_ArchivoUsuarios -> nodo_archivo2
+nodo_archivo2[label="archivo2.txt"]
+
+}

@@ -1,0 +1,9 @@
+digraph g{
+ljuan1[label="juan"]; 
+lpedro4[label="pedro"]; 
+lyulisa8[label="yulisa"]; 
+lcesar7[label="cesar"]; 
+ljuan1 -> lpedro4; 
+lpedro4 -> lyulisa8; 
+lyulisa8 -> lcesar7; 
+}AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=
