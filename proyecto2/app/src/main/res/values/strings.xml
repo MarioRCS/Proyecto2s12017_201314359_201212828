@@ -1,4 +1,14 @@
 <resources>
-    <string name="app_name">Login</string>
-    <string name="hola">hola mundo</string>
+    <string name="app_name">Google Drive</string>
+    <string name="hola">Hola Mundo</string>
+    <string name="crearcarpeta">Crear Carpeta</string>
+    <string name="actualizarcarpeta">Actualizar C</string>
+    <string name="actualizararchivo">Actualizar A</string>
+    <string name="eliminararchivo">Eliminar A</string>
+    <string name="modificararchivo">Modificar A</string>
+    <string name="eliminarcarpta">Eliminar C</string>
+    <string name="modificarcarpeta">Modificar C</string>
+    <string name="cargararchivo">Cargar A</string>
+    <string name="nuevacarpeta">Nueva C</string>
+    <string name="cancelar">Cancelar</string>
 </resources>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="proyecto2.roberto.example.com.proyecto2.Main2Activity">
+
+    <EditText
+        android:id="@+id/txtusuario"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text=""
+        android:hint="Nombre"
+        tools:layout_editor_absoluteX="84dp"
+        tools:layout_editor_absoluteY="75dp"
+        android:layout_marginBottom="42dp"
+        android:layout_above="@+id/txtcontrasenia"
+        android:layout_alignStart="@+id/txtcontrasenia" />
+
+    <EditText
+        android:id="@+id/txtcontrasenia"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text=""
+        android:hint="Contraseña"
+        tools:layout_editor_absoluteX="84dp"
+        tools:layout_editor_absoluteY="165dp"
+        android:layout_marginBottom="69dp"
+        android:layout_above="@+id/button2"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="185dp"
+        android:text="Registrar"
+        tools:layout_editor_absoluteX="133dp"
+        tools:layout_editor_absoluteY="240dp" />
+</RelativeLayout>

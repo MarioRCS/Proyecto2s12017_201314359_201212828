@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="proyecto2.roberto.example.com.proyecto2.Main3Activity"
+    android:weightSum="1"><![CDATA[
+
+    >
+
+    ]]>
+
+    <ListView
+        android:id="@+id/listview"
+        android:layout_width="match_parent"
+        android:layout_height="303dp"
+        android:layout_below="@+id/textView"
+        android:layout_alignParentStart="true">
+
+    </ListView>
+
+    <EditText
+        android:id="@+id/editText3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Name"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true" />
+
+
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/button4"
+            android:layout_width="162dp"
+            android:layout_height="44dp"
+            android:text="@string/nuevacarpeta"
+            android:layout_above="@+id/button5"
+            android:layout_alignParentStart="true"
+            android:layout_toStartOf="@+id/button7" />
+
+        <Button
+            android:id="@+id/button3"
+            android:layout_width="184dp"
+            android:layout_height="37dp"
+            android:text="@string/actualizarcarpeta"
+            android:layout_above="@+id/button4"
+            android:layout_alignParentStart="true" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.32"
+            android:text="TextView"
+            android:layout_below="@+id/editText3"
+            android:layout_alignParentStart="true" />
+
+    <Button
+        android:id="@+id/button5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/eliminarcarpta"
+        android:layout_above="@+id/button8"
+        android:layout_alignParentStart="true"
+        android:layout_toStartOf="@+id/button7"
+        android:layout_alignEnd="@+id/button3" />
+
+    <Button
+        android:id="@+id/button6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/cargararchivo"
+        android:layout_alignTop="@+id/button3"
+        android:layout_alignParentEnd="true"
+        android:layout_toEndOf="@+id/button4" />
+
+    <Button
+        android:id="@+id/button7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/eliminararchivo"
+        android:layout_below="@+id/button3"
+        android:layout_alignParentEnd="true"
+        android:layout_toEndOf="@+id/button3" />
+
+    <Button
+        android:id="@+id/button8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:text="@string/modificarcarpeta"
+        android:layout_alignTop="@+id/button10"
+        android:layout_toStartOf="@+id/button10" />
+
+    <Button
+        android:id="@+id/button9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/modificararchivo"
+        android:layout_alignBottom="@+id/button5"
+        android:layout_alignParentEnd="true"
+        android:layout_toEndOf="@+id/button5"
+        android:layout_alignTop="@+id/button5" />
+
+    <Button
+        android:id="@+id/button10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/actualizararchivo"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_toEndOf="@+id/button5" />
+
+
+</RelativeLayout>
