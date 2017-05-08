@@ -5,7 +5,7 @@ node[style=filled,shape=box, label="Inicio", rankdir=UD];
 "0,0"[label="raiz", style=filled];
 "1,0"[label="2017", style=filled];
 "0,1"[label="mayo", style=filled];
-"1,1"[label="Dia: 10", style=filled];
+"1,1"[label="Dia: 5", style=filled];
 "0,0" -> "1,0"[constraint=false];
 "1,0" -> "0,0"[constraint=false];
 {rank=same;"0,0" "1,0"}

@@ -23,3 +23,9 @@ class NodoLDU(object):
 
 	def graficarMatriz(self):
 		self.matrizD.graficar()
+
+	def graficarLista(self, anio, mes):
+		self.matrizD.graficarLDMatriz(anio, mes)
+
+	def graficarHash(self, anio, mes, dia):
+		self.matrizD.graficarHashMatriz(anio, mes, dia)

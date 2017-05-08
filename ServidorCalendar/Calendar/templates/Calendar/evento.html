@@ -1,6 +1,28 @@
 {% extends 'Calendar/Base.html' %}
 
 {% block content %}
+<!-- ****** MENU ****** -->
+<nav class="navbar navbar-toggleable-md navbar-inverse" style="background-color: #000000">
+
+	<div class="navbar-brand" style="font-style: italic; color: #000;">|</div>
+	<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+		<span class="navbar-toggler-icon"></span>
+	</button>
+	<div class="collapse navbar-collapse" id="navbarSupportedContent">
+		<ul class="navbar-nav mr-auto">
+			<li class="nav-item dropdown" id="iEvento">
+				<a class="nav-link" href="/calendario/">Calendario</a>
+			</li>
+			<li class="nav-item dropdown" id="iEvento">
+				<a class="nav-link" href="/logout/">Log out</a>
+			</li>
+		</ul>
+
+		<div class="navbar-brand" style="font-style: italic; color: #FFD600;"></div>
+	</div>
+</nav>
+<!-- ****** FIN MENU ****** -->
+
 <div class="container-fluid mt-5">
 	<div class="container">
 		<div class="row" style="text-align: center">

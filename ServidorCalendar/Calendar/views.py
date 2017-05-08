@@ -56,16 +56,23 @@ def calendario(request):
 	usuario = ldU.buscar(sesion)
 	matriz = usuario.matrizD
 	nodoInterno = matriz.buscar("2017", "mayo")
-	evento = []
+	eventos = []
 	dias = []
 	if nodoInterno != None:
 		listaDoble = nodoInterno.ldDias
 		temp = listaDoble.inicio
 		while temp != None:
 			dias.append(temp.dia)
+			tablaHash = temp.hash 
+			temp2 = tablaHash.table
+			for evento in temp2:
+				if evento != None:
+					eventos.append(evento.nombre)
+					print("evento: " + str(evento.nombre))
+					print(eventos)
 			temp = temp.siguiente
 
-	return render(request, 'Calendar/calendario.html', {'dias': dias})
+	return render(request, 'Calendar/calendario.html', {'dias': dias, 'eventos': eventos})
 
 def evento(request):
 	return render(request, 'Calendar/evento.html')
@@ -86,7 +93,7 @@ def creacion(request):
 		print(sesion)
 		ldU.insertarMatrizLDU(str(sesion), str(day), str(month), str(year), str(name), str(desc), str(adress), str(time))
 				
-		ldU.graficarMatrizLDU(sesion)
+		ldU.graficarMatrizLDU(sesion, str(year), str(month), str(day))
 
 	return render(request, 'Calendar/evento.html', {'mensaje': mensaje})
 

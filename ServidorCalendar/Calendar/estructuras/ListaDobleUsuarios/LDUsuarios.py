@@ -139,9 +139,11 @@ class ListaDobleUsuarios(object):
 		if nombre == usuario.getNombre():
 			usuario.insertarMatriz(dia, mes, anio, evento, desc, direc, hora)
 			print("Nodo insertado en Lista: " + str(dia) + "--" + mes + "--" + anio)
-
-	def graficarMatrizLDU(self, nombre):
+	#******************** GRAFICAR ********************#
+	def graficarMatrizLDU(self, nombre, anio, mes, dia):
 		usuario = self.buscar(nombre)
 		print(str(usuario.getNombre()))
 		if nombre == usuario.getNombre():
 			usuario.graficarMatriz()
+			usuario.graficarLista(anio, mes)
+			usuario.graficarHash(anio, mes, dia)

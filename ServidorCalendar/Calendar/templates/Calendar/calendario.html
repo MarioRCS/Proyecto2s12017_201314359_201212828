@@ -13,16 +13,6 @@
 			<li class="nav-item dropdown" id="iEvento">
 				<a class="nav-link" href="/evento/">Crear Evento</a>
 			</li>
-			<li class="nav-item dropdown" id="iPerfiles">
-				<a class="nav-link" href="">Perfiles</a>
-			</li>
-			<li class="nav-item dropdown" id="iParametros">
-				<a class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Parámetros</a>
-				<div class="dropdown-menu">
-					<a class="dropdown-item" href="">Parámetros Generales</a>
-					<a class="dropdown-item" href="">Parámetros Locales</a>
-				</div>
-			</li>
 			<li class="nav-item dropdown" id="iEvento">
 				<a class="nav-link" href="/logout/">Log out</a>
 			</li>
@@ -32,95 +22,35 @@
 	</div>
 </nav>
 <!-- ****** FIN MENU ****** -->
-{% for dia in dias %}
-	{{ dia }}
-{% endfor %}
-<div class="container">
-	<div class="card card-outline-secondary mb-3 text-center" style="width: 300px">
-		<h3 class="card-header text-right">1</h3>
-		<div class="card-block">
-			<blockquote class="card-blockquote">
-				<p></p>
-				<footer> <cite title="Source Title"></cite></footer>
-			</blockquote>
-		</div>
-		<h3 class="card-header text-right">1</h3>
-		<div class="card-block">
-			<blockquote class="card-blockquote">
-				<p></p>
-				<footer> <cite title="Source Title"></cite></footer>
-			</blockquote>
-		</div>
-	</div>
 
+<div class="container" style="width: 800px">
+	<br>
 	<table class="table table-bordered">
 		<thead>
 			<tr class="table-success">
-				<th>Domingo</th>
-				<th>Lunes</th>
-				<th>Martes</th>
-				<th>Miercoles</th>
-				<th>Jueves</th>
-				<th>Viernes</th>
-				<th>Sabado</th>
+				<th>Dia</th>
+				<th>Evento</th>
 			</tr>
 		</thead>
-		<tbody>
-			<tr>
-				<th>30</th>
-				<td>1</td>
-				<td>2</td>
-				<td>3</td>
-				<td>4</td>
-				<td>5</td>
-				<td>6</td>
+		<tbody>			
+			{% for dia in dias %}
+			<tr>				
+				<th> {{ dia }} </th>
+				{% for evento in eventos %}
+					<th> {{ evento }} </th>
+				{% endfor %}
 			</tr>
-			<tr>
-				<th>7</th>
-				<td>8</td>
-				<td>9</td>
-				<td>10</td>
-				<td>11</td>
-				<td>12</td>
-				<td>13</td>
-			</tr>
-			<tr>
-				<th>14</th>
-				<td>15</td>
-				<td>16</td>
-				<td>17</td>
-				<td>18</td>
-				<td>19</td>
-				<td>20</td>
-			</tr>
-			<tr>
-				<th>21</th>
-				<td>22</td>
-				<td>23</td>
-				<td>24</td>
-				<td>25</td>
-				<td>26</td>
-				<td>27</td>
-			</tr>
-			<tr>
-				<th>28</th>
-				<td>29</td>
-				<td>30</td>
-				<td>31</td>
-				<td>1</td>
-				<td>2</td>
-				<td>3</td>
-			</tr>
+			{% endfor %}		
 		</tbody>
 	</table>
-</div>
+</br>
 
+<!-- ****** GENERADOR QR ****** -->
 <form>
 	<textarea name="msg" rows="10" cols="40">Texto a codificar</textarea><br> 
 	<input type="button" value="Generar" onclick="update_qrcode()">
 </form>
 <div id="qr"></div>
-</div>
 <script type="text/javascript">
 	var qrcode=function(){var qrcode=function(typeNumber,errorCorrectLevel){var PAD0=0xEC;var PAD1=0x11;var _typeNumber=typeNumber;var _errorCorrectLevel=QRErrorCorrectLevel[errorCorrectLevel];var _modules=null;var _moduleCount=0;var _dataCache=null;var _dataList=new Array();var _this={};var makeImpl=function(test,maskPattern){_moduleCount=_typeNumber*4+17;_modules=function(moduleCount){var modules=new Array(moduleCount);for(var row=0;row<moduleCount;row+=1){modules[row]=new Array(moduleCount);for(var col=0;col<moduleCount;col+=1){modules[row][col]=null;}}
 	return modules;}(_moduleCount);setupPositionProbePattern(0,0);setupPositionProbePattern(_moduleCount-7,0);setupPositionProbePattern(0,_moduleCount-7);setupPositionAdjustPattern();setupTimingPattern();setupTypeInfo(test,maskPattern);if(_typeNumber>=7){setupTypeNumber(test);}
@@ -210,6 +140,5 @@
 					base64.flush();var img='';img+='<img';img+='\u0020src="';img+='data:image/gif;base64,';img+=base64;img+='"';img+='\u0020width="';img+=width;img+='"';img+='\u0020height="';img+=height;img+='"';if(alt){img+='\u0020alt="';img+=alt;img+='"';}
 					img+='/>';return img;};return qrcode;}();var draw_qrcode=function(text,typeNumber,errorCorrectLevel){document.write(create_qrcode(text,typeNumber,errorCorrectLevel));};var create_qrcode=function(text,typeNumber,errorCorrectLevel,table){var qr=qrcode(typeNumber||4,errorCorrectLevel||'M');qr.addData(text);qr.make();return qr.createImgTag();};var update_qrcode=function(){var text=document.forms[0].elements['msg'].value.replace(/^[\s\u3000]+|[\s\u3000]+$/g,'');document.getElementById('qr').innerHTML=create_qrcode(text);};
 				</script>
-
-
-				{% endblock %}
+			</div>
+			{% endblock %}
