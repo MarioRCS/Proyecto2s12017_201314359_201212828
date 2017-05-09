@@ -1,0 +1,5 @@
+digraph G {
+graph [rankdir = TB];
+node [shape = record,height=.1];  {
+"0" [label = "5"];
+} labelloc="t"; label=" LISTA DOBLE DIAS";}

@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="proyecto2.roberto.example.com.calendar.Main3Activity">
+
+    <EditText
+        android:id="@+id/editText2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="22dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text=""
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="21dp" />
+
+    <EditText
+        android:id="@+id/editText3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text=""
+        android:layout_below="@+id/editText2"
+        android:layout_alignStart="@+id/editText2" />
+
+    <EditText
+        android:id="@+id/editText5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text=""
+        android:layout_below="@+id/editText3"
+        android:layout_alignStart="@+id/editText3" />
+
+    <EditText
+        android:id="@+id/editText7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/editText5"
+        android:layout_below="@+id/editText5"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="" />
+
+    <EditText
+        android:id="@+id/editText9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text=""
+        android:layout_alignStart="@+id/editText7"
+        android:layout_below="@+id/button6" />
+
+    <EditText
+        android:id="@+id/editText10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text=""
+        android:layout_below="@+id/button7"
+        android:layout_alignStart="@+id/editText9" />
+
+    <EditText
+        android:id="@+id/editText11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text=""
+        android:layout_below="@+id/button8"
+        android:layout_alignStart="@+id/editText10" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Crear"
+        android:layout_below="@+id/button9"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="40dp" />
+
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Modificar"
+        android:layout_alignBaseline="@+id/button3"
+        android:layout_alignBottom="@+id/button3"
+        android:layout_alignStart="@+id/editText11" />
+
+    <Button
+        android:id="@+id/button5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/editText11"
+        android:layout_alignTop="@+id/button4"
+        android:layout_marginEnd="15dp"
+        android:text="Eliminar" />
+
+    <Button
+        android:id="@+id/button6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hora"
+        android:layout_alignTop="@+id/editText7"
+        android:layout_alignStart="@+id/button3"
+        android:layout_above="@+id/button7" />
+
+    <Button
+        android:id="@+id/button7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Dia"
+        android:layout_below="@+id/editText7"
+        android:layout_alignStart="@+id/button6" />
+
+    <Button
+        android:id="@+id/button8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Mes"
+        android:layout_below="@+id/button7"
+        android:layout_alignStart="@+id/button7" />
+
+    <Button
+        android:id="@+id/button9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Año"
+        android:layout_alignTop="@+id/editText11"
+        android:layout_alignStart="@+id/button8"
+        android:layout_alignBottom="@+id/editText11" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/editText2"
+        android:layout_alignBottom="@+id/editText2"
+        android:layout_alignStart="@+id/button6"
+        android:text="Nombre: "
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/editText3"
+        android:layout_alignBottom="@+id/editText3"
+        android:layout_alignEnd="@+id/textView"
+        android:text="Direccion: "
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Descripcion"
+        android:textSize="14sp"
+        android:layout_alignBaseline="@+id/editText5"
+        android:layout_alignBottom="@+id/editText5"
+        android:layout_alignStart="@+id/button6" />
+
+</RelativeLayout>

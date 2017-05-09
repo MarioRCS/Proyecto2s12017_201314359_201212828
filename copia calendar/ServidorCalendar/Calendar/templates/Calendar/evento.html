@@ -1,0 +1,89 @@
+{% extends 'Calendar/Base.html' %}
+
+{% block content %}
+<!-- ****** MENU ****** -->
+<nav class="navbar navbar-toggleable-md navbar-inverse" style="background-color: #000000">
+
+	<div class="navbar-brand" style="font-style: italic; color: #000;">|</div>
+	<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+		<span class="navbar-toggler-icon"></span>
+	</button>
+	<div class="collapse navbar-collapse" id="navbarSupportedContent">
+		<ul class="navbar-nav mr-auto">
+			<li class="nav-item dropdown" id="iEvento">
+				<a class="nav-link" href="/calendario/">Calendario</a>
+			</li>
+			<li class="nav-item dropdown" id="iEvento">
+				<a class="nav-link" href="/logout/">Log out</a>
+			</li>
+		</ul>
+
+		<div class="navbar-brand" style="font-style: italic; color: #FFD600;"></div>
+	</div>
+</nav>
+<!-- ****** FIN MENU ****** -->
+
+<div class="container-fluid mt-5">
+	<div class="container">
+		<div class="row" style="text-align: center">
+			<div class="col hidden-sm-down"></div>
+			<div class="col-3" style="width: 300px">
+				<form action="/creacion/" method="post"> {% csrf_token %}
+					<div style="text-align: center">
+						<h3>Crear Evento</h3>
+					</div>
+					<br />
+					<div class="input-group">
+						<span class="input-group-addon" id="basic-addon1"></span>
+						<input type="text" name="nombre" placeholder="Nombre Evento" class="form-control">
+					</div>
+					<br />
+					<div class="input-group ">
+						<span class="input-group-addon" id="basic-addon1"></span>
+						<input type="text" name="direccion" placeholder="Direccion" class="form-control">
+					</div>
+					<br />
+					<div class="input-group ">
+						<span class="input-group-addon" id="basic-addon1"></span>
+						<input type="text" name="descripcion" placeholder="Descripcion" class="form-control">
+					</div>
+					<br />
+					<div class="input-group ">
+						<span class="input-group-addon" id="basic-addon1"></span>
+						<input type="time" name="hora" placeholder="Hora" class="form-control">
+					</div>
+					<br />
+					<div class="input-group ">
+						<span class="input-group-addon" id="basic-addon1"></span>
+						<input type="number" name="dia" placeholder="Dia" class="form-control">
+					</div>
+					<br />
+					<div class="input-group ">
+						<span class="input-group-addon" id="basic-addon1"></span>
+						<input type="text" name="mes" placeholder="Mes" class="form-control">
+					</div>
+					<br />
+					<div class="input-group ">
+						<span class="input-group-addon" id="basic-addon1"></span>
+						<input type="text" name="anio" placeholder="Año" class="form-control">
+					</div>
+					<br />
+					<div class="input-group container">
+						<button type="submit" class="btn btn-secondary" style="width: 300px;">Crear</button>
+					</div>
+					<br />
+					{% if mensaje != None %}
+					<div class="alert alert-success" role="alert">
+						<strong>{{ mensaje }}</strong> 
+					</div>
+					{% endif %}
+				</form>
+			</div>
+
+			<div class="col hidden-sm-down"></div>
+		</div>
+		<div>
+		</div>
+	</div>
+</div>
+{% endblock %}
