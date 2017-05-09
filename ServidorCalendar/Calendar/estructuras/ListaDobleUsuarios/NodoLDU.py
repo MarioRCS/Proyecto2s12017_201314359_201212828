@@ -21,6 +21,9 @@ class NodoLDU(object):
 	def insertarMatriz(self, dia, mes, anio, evento, desc, direc, hora):
 		self.matrizD.insertar(dia, mes, anio, evento, desc, direc, hora)
 
+	def eliminarMatriz(self, anio, mes, dia, evento):
+		self.matrizD.eliminarHashMatriz(anio, mes, dia, evento)
+
 	def graficarMatriz(self):
 		self.matrizD.graficar()
 

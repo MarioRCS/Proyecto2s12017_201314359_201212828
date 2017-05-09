@@ -45,7 +45,7 @@ class Matriz(object):
 				nodo.insertarHashMatriz(dia, evento, desc, direc, hora)
 			else:
 				print("df")
-				if nodo.buscarLD(dia) != dia:
+				if nodo.buscarLD(dia) == None:
 					nodo.insertarLD(dia)
 					nodo.insertarHashMatriz(dia, evento, desc, direc, hora)
 					print("creando nuevo dia")
@@ -180,6 +180,12 @@ class Matriz(object):
 		evento = self.diaEvento.buscarLD(dia)
 		if dia == evento.getDia():
 			self.diaEvento.modificarHashMatriz(dia, name, desc, direc, hora)
+	#********************** ELIMINAR **********************#
+	def eliminarHashMatriz(self, anio, mes, dia, name):
+		self.buscar(anio, mes)
+		evento = self.diaEvento.buscarLD(dia)
+		if dia == evento.getDia():
+			self.diaEvento.eliminarHashMatriz(dia, name)
 	#********************** GRAFICAR **********************#
 	def graficarHashMatriz(self, anio, mes, dia):
 		self.buscar(anio, mes)

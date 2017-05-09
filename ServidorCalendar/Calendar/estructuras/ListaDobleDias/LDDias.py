@@ -152,7 +152,7 @@ class ListaDobleDias(object):
 	def insertarHashLD(self, dia, evento, desc, direc, hora):
 		diaEvento = self.buscar(dia)
 		print(diaEvento.getIndice())
-		if dia == diaEvento.getDia():			
+		if dia == diaEvento.getDia():	
 			diaEvento.insertarHash(evento, desc, direc, hora)
 			print("Nodo insertado en Lista: " + str(diaEvento.getDia()) + "--" + evento)
 
@@ -161,6 +161,11 @@ class ListaDobleDias(object):
 		if dia == diaEvento.getDia():
 			diaEvento.modificarHash(name, desc, direc, hora)
 			print("Evento Modificado")
+
+	def eliminarHashLD(self, dia, name):
+		diaEvento = self.buscar(dia)
+		if dia == diaEvento.getDia():
+			diaEvento.eliminarHash(name)
 
 	def graficarHashLD(self, dia):
 		diaEvento = self.buscar(dia)

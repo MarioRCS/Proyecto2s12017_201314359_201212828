@@ -49,30 +49,35 @@ def validacion(request):
 
 def calendario(request):
 	global sesion
+	mes = request.POST.get('mes')
+	anio = request.POST.get('anio')
 
 	if sesion == "":
-		return redirect('/login/')
+		return redirect('/login/') 
 
 	usuario = ldU.buscar(sesion)
 	matriz = usuario.matrizD
-	nodoInterno = matriz.buscar("2017", "mayo")
-	eventos = []
+	nodoInterno = matriz.buscar(anio, mes)
+	deventos = []
 	dias = []
-	if nodoInterno != None:
-		listaDoble = nodoInterno.ldDias
-		temp = listaDoble.inicio
-		while temp != None:
-			dias.append(temp.dia)
-			tablaHash = temp.hash 
-			temp2 = tablaHash.table
-			for evento in temp2:
-				if evento != None:
-					eventos.append(evento.nombre)
-					print("evento: " + str(evento.nombre))
-					print(eventos)
-			temp = temp.siguiente
+	if request.method == 'POST':
+		if nodoInterno != None:
+			listaDoble = nodoInterno.ldDias
+			temp = listaDoble.inicio
+			while temp != None:
+				dias.append(temp.dia)
+				tablaHash = temp.hash 
+				temp2 = tablaHash.table
+				eventos = []
+				for evento in temp2:
+					if evento != None:
+						eventos.append(evento.nombre)
+						print("evento: " + str(evento.nombre))
+						print(eventos)
+				deventos.append(eventos)
+				temp = temp.siguiente
 
-	return render(request, 'Calendar/calendario.html', {'dias': dias, 'eventos': eventos})
+	return render(request, 'Calendar/calendario.html', {'dias': dias, 'eventos': deventos})
 
 def evento(request):
 	return render(request, 'Calendar/evento.html')
@@ -91,13 +96,26 @@ def creacion(request):
 		year = request.POST.get('anio')
 
 		print(sesion)
-		ldU.insertarMatrizLDU(str(sesion), str(day), str(month), str(year), str(name), str(desc), str(adress), str(time))
+		ldU.insertarMatrizLDU(str(sesion), int(day), str(month), str(year), str(name), str(desc), str(adress), str(time))
 				
-		ldU.graficarMatrizLDU(sesion, str(year), str(month), str(day))
+		ldU.graficarMatrizLDU(sesion, str(year), str(month), int(day))
 
 	return render(request, 'Calendar/evento.html', {'mensaje': mensaje})
+
+def eliminar(request):
+	global sesion
+
+	if request.method == 'POST':
+		name = request.POST.get('evento')
+		day = request.POST.get('dia')
+		month = request.POST.get('mes')
+		year = request.POST.get('anio')
+		
+		ldU.eliminarMatrizLDU(str(sesion), str(year), str(month), int(day), str(name))
+	return redirect('/calendario/')
 
 def logout(request):
 	global sesion
 	sesion = ""
 	return redirect('/login/')
+

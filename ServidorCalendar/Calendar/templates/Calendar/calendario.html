@@ -22,28 +22,79 @@
 	</div>
 </nav>
 <!-- ****** FIN MENU ****** -->
+<!-- ****** FORM ****** -->
+<div class="container" style="width: 300px">
+	<form action="/calendario/" method="post"> {% csrf_token %}
+		<br>
+		<div class="form-group">
+			<select class="form-control" id="mes" name="mes">
+				<option>enero</option>
+				<option>febrero</option>
+				<option>marzo</option>
+				<option>abril</option>
+				<option>mayo</option>
+				<option>junio</option>
+				<option>julio</option>
+				<option>agosto</option>
+				<option>septiembre</option>
+				<option>octubre</option>
+				<option>noviembre</option>
+				<option>diciembre</option>
+			</select>
+		</div>
+		<div class="input-group">
+			<span class="input-group-addon" id="basic-addon1"></span>
+			<input type="text" name="anio" placeholder="Año" class="form-control">
+		</div>
+		<br />
+		<div class="input-group container">
+			<button type="submit" class="btn btn-secondary" style="width: 300px;">Ver</button>
+		</div>
+		<br />
+	</div>
+	<!-- ****** FIN FORM ****** -->
 
-<div class="container" style="width: 800px">
-	<br>
-	<table class="table table-bordered">
-		<thead>
-			<tr class="table-success">
-				<th>Dia</th>
-				<th>Evento</th>
-			</tr>
-		</thead>
-		<tbody>			
-			{% for dia in dias %}
-			<tr>				
-				<th> {{ dia }} </th>
-				{% for evento in eventos %}
-					<th> {{ evento }} </th>
+	<!-- ****** TABLA EVENTOS ****** -->
+	<div class="container" style="width: 800px">
+		<br>
+		<table class="table table-bordered">
+			<thead>
+				<tr class="table-success">
+					<th>Dia</th>
+					<th>Evento</th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+				{% with variable=0 %}	
+				{% for leventos in eventos %}
+				{% with my_var=forloop.counter0 %}
+				<tr>
+					{% load index %}			
+					<td><b> {{ dias|index:my_var }} </b></td>
+					<td></td>
+					<td></td>
+				</tr>
+				{% endwith %}
+				{% for evento in leventos %}
+				<tr>
+					<td></td>		
+					<td> {{ evento }} </td>
+					<td> 
+						<input type="hidden" name="evento" value={{ evento }}>
+						<input type="hidden" name="dia" value={{ dias }}>
+						<button type="button" class="btn btn-info" value={{evento}}>Modificar</button>
+						<button type="button" class="btn btn-danger" href="/eliminar/" value={{evento}}>Eliminar</button>
+					</td>
+				</tr>
 				{% endfor %}
-			</tr>
-			{% endfor %}		
-		</tbody>
-	</table>
-</br>
+				{% endfor %}	
+				{% endwith %}	
+			</tbody>
+		</table>
+	</br>
+</form>
+<!-- ****** FIN TABLA EVENTOS ****** -->
 
 <!-- ****** GENERADOR QR ****** -->
 <form>

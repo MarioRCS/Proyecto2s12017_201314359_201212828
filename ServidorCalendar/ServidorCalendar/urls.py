@@ -26,6 +26,7 @@ urlpatterns = [
 	url(r'^calendario/', views.calendario),
     url(r'^evento/', views.evento),
     url(r'^creacion/', views.creacion),
+    url(r'^eliminar/', views.eliminar),
 	url(r'^logout/', views.logout),
     url(r'^admin/', admin.site.urls),
 ]

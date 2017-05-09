@@ -47,5 +47,8 @@ class NodoListaNodos(object):
 	def modificarHashMatriz(self, dia, name, desc, direc, hora):
 		self.ldDias.modificarHashLD(dia, name, desc, direc, hora)
 
+	def eliminarHashMatriz(self, dia, name):
+		self.ldDias.eliminarHashLD(dia, name)
+
 	def graficarHashMatriz(self, dia):
 		self.ldDias.graficarHashLD(dia)
