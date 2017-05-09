@@ -1,5 +1,5 @@
 digraph g {
  graph [rankdir=UD];
  node [shape = record,height=.1];  { 
-"0" [label = "Pos: 117\nNombre: cumple\nDescripcion: cumple\nDireccion: Guatemala\nHora: 01:00"];
+"0" [label = "Pos: 117\nNombre: cumple\nDescripcion: cumple\nDireccion: Guatemala\nHora: 13:00"];
 }  labelloc="t"; label=" TABLA HASH EVENTOS";}

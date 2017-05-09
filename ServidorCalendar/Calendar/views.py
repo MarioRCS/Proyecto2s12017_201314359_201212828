@@ -106,13 +106,15 @@ def eliminar(request):
 	global sesion
 
 	if request.method == 'POST':
+		mensaje = "Evento eliminado!"
 		name = request.POST.get('evento')
 		day = request.POST.get('dia')
 		month = request.POST.get('mes')
 		year = request.POST.get('anio')
 		
+		print(sesion + "--" + year + "--" + month + "--" + day + "--" + name)
 		ldU.eliminarMatrizLDU(str(sesion), str(year), str(month), int(day), str(name))
-	return redirect('/calendario/')
+	return render(request, 'Calendar/calendario.html', {'mensaje': mensaje})
 
 def logout(request):
 	global sesion
