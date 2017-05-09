@@ -1,0 +1,41 @@
+"""miproyecto URL Configuration
+
+The `urlpatterns` list routes URLs to views. For more information please see:
+    https://docs.djangoproject.com/en/1.9/topics/http/urls/
+Examples:
+Function views
+    1. Add an import:  from my_app import views
+    2. Add a URL to urlpatterns:  url(r'^$', views.home, name='home')
+Class-based views
+    1. Add an import:  from other_app.views import Home
+    2. Add a URL to urlpatterns:  url(r'^$', Home.as_view(), name='home')
+Including another URLconf
+    1. Add an import:  from blog import urls as blog_urls
+    2. Import the include() function: from django.conf.urls import url, include
+    3. Add a URL to urlpatterns:  url(r'^blog/', include(blog_urls))
+"""
+from django.conf.urls import url
+from django.contrib import admin
+from api import views
+
+
+urlpatterns = [
+    url(r'^admin/', admin.site.urls),
+    url(r'^(?P<dato1>[a-zA-Z]+)/(?P<dato2>[a-zA-Z]+)/prueba/$', views.metodos.prueba),
+    url(r'^(?P<dato3>[a-zA-Z]+)/(?P<dato4>[a-zA-Z]+)/usuario/$', views.metodos.Insertarusuario),
+    url(r'^GraficarLista/$', views.metodos.Graficarlista),
+    url(r'^(?P<dato1>[a-zA-Z]+)/actualizarcarpeta/$', views.metodos.ActualizarCarpeta),
+    url(r'^(?P<dato1>[a-zA-Z]+)/(?P<dato2>[a-zA-Z]+)/crearcarpeta/$', views.metodos.CrearCarpeta),
+    url(r'^(?P<dato1>[a-zA-Z]+)/graficararbolb/$', views.metodos.GraficarArbolB),
+    url(r'^(?P<dato1>[a-zA-Z]+)/(?P<dato2>[\w.+-]+)/(?P<dato3>[a-zA-Z0-9_].+)/subirarchivo/$', views.metodos.SubirArchivo),
+    url(r'^(?P<dato1>[a-zA-Z]+)/graficaravl/$', views.metodos.GraficarAvl),
+    url(r'^(?P<dato1>[a-zA-Z]+)/actualizararchivos/$', views.metodos.ActualizarA),
+    url(r'^(?P<dato1>[a-zA-Z]+)/(?P<dato2>[\w.+-]+)/descargararchivo/$', views.metodos.DescargarArchivo),
+    url(r'^(?P<dato1>[a-zA-Z]+)/(?P<dato2>[a-zA-Z]+)/eliminarcarpeta/$', views.metodos.EliminarCarpeta),
+    url(r'^(?P<dato1>[a-zA-Z]+)/(?P<dato2>[\w.+-]+)/eliminararchivo/$', views.metodos.EliminarArchivo),
+    url(r'^(?P<dato1>[a-zA-Z]+)/(?P<dato2>[a-zA-Z]+)/(?P<dato3>[a-zA-Z]+)/modificarcarpeta/$', views.metodos.ModificarCarpeta),
+    url(r'^(?P<dato1>[a-zA-Z]+)/(?P<dato2>[\w.+-]+)/(?P<dato3>[\w.+-]+)/modificararchivo/$', views.metodos.ModificarArchivo),
+    url(r'^graficarbitacora/$', views.metodos.GraficarBitac),
+
+]
+

@@ -1,0 +1,17 @@
+digraph g{
+nodo1[label="Intento Loginmario"];
+nodo1[label="Creacion Carpetasolos"];
+nodo1[label="Creacion Carpetadosdias"];
+nodo0[label=""];
+nodo1 -> nodo1;
+nodo1 -> nodo1;
+nodo1 -> nodo0;
+nodo1[label="Intento Loginmario"];
+nodo1[label="Creacion Carpetasolos"];
+nodo1[label="Creacion Carpetadosdias"];
+nodo0[label=""];
+nodo1 -> nodo1;
+nodo1 -> nodo1;
+nodo1 -> nodo0;
+
+}

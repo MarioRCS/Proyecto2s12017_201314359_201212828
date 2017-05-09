@@ -1,0 +1,7 @@
+digraph g{
+rankdir = "UD"
+nodojuanpablopedro[label="juan|pablo|pedro"
+shape="record"
+];
+
+}

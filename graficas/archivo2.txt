@@ -1,0 +1,21 @@
+digraph g { 
+rankdir=LR;
+n_linux[label="linux
+maquina"]; 
+n_windows[label="windows
+maquina"]; 
+n_mac[label="mac
+maquina"]; 
+n_solaris[label="solaris
+maquina"]; 
+n_android[label="android
+maquina"]; 
+n_linux -> n_windows;
+n_windows -> n_linux;
+n_windows -> n_mac;
+n_mac -> n_windows;
+n_mac -> n_solaris;
+n_solaris -> n_mac;
+n_solaris -> n_android;
+n_android -> n_solaris;
+}

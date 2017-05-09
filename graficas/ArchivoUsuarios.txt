@@ -1,0 +1,5 @@
+digraph g { 
+rankdir=LR;
+n_mario[label="mario
+roberto"]; 
+}
